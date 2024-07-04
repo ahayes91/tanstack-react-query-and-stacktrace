@@ -13,6 +13,8 @@ TypeError: _(...).resumePausedMutations is not a function
     at r (focusManager.js:12:32)
 ```
 
+*Currently this repository is not yet recreating the error with the steps below, still trying to figure out what is in our production app that is different to this repo configuration that could cause it.*
+
 To recreate:
 
 - `npm install`

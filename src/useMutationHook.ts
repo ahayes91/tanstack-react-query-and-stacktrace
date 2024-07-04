@@ -11,7 +11,7 @@ import StackTrace from 'stacktrace-js';
 
 const getParsedStackTrace = (error: Error) => {
   return StackTrace.fromError(error)
-    .then(() => 'StackTrace fails')
+    .then((result) => result.map(stackFrame => stackFrame.toString()).join('\n'))
     .catch((err) => `Error StackTrace failed ${String(err)}`);
   // return resolveAfter2Seconds().then(() => 'Promises do work inside useMutation!');
 };

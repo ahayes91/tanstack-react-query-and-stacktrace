@@ -21,3 +21,14 @@ To recreate:
 
 
 To see that the error is isolated to `stacktrace-js`, uncomment the lines in `useMutationHook.ts` to substitute a timeout promise instead of the call to `stacktrace-js` and run the above steps again.
+
+
+Note that this repo also shows some errors around sourcemaps on build:
+
+```text
+vite v5.3.3 building for production...
+node_modules/@tanstack/react-query-devtools/build/modern/index.js (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+node_modules/@tanstack/react-query/build/modern/useSuspenseQuery.js (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+node_modules/@tanstack/react-query/build/modern/useBaseQuery.js (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 107 modules transformed.
+```

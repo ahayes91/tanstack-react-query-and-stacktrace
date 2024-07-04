@@ -32,7 +32,7 @@ function App() {
       </p>
       <button
         onClick={() => {
-          fireMutation({ id: new Date(), title: 'Do Laundry' });
+          fireMutation(new Error('some mad error'));
         }}
       >
         Create Todo

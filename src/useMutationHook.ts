@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import StackTrace from 'stacktrace-js';
 
 // function resolveAfter2Seconds() {
@@ -17,12 +17,11 @@ const getParsedStackTrace = (error: Error) => {
 };
 
 export const useMutationHook = () => {
-  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: async (error: string | Error = 'No stack trace found') => {
       const stackTraceMessage =
         typeof error === 'string' ? error : await getParsedStackTrace(error);
-
+      console.log(stackTraceMessage);
       return fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
@@ -36,10 +35,6 @@ export const useMutationHook = () => {
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
-    },
-    onSuccess: () => {
-      console.log('success!');
-      void queryClient.invalidateQueries({ queryKey: ['randomKey'] });
     },
   });
 

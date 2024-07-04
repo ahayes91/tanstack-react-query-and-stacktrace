@@ -19,9 +19,7 @@ To recreate:
 - `npm run build`
 - `npm run preview`
 
-
 To see that the error is isolated to `stacktrace-js`, uncomment the lines in `useMutationHook.ts` to substitute a timeout promise instead of the call to `stacktrace-js` and run the above steps again.
-
 
 Note that this repo also shows some errors around sourcemaps on build:
 
